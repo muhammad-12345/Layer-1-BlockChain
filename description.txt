@@ -1,0 +1,78 @@
+entails creating a Layer 1 Blockchain in Golang
+
+PART 1
+blockchain features
+
+######Create New Block:
+
+Develop a method to create a new block.
+
+Transactions can be simple strings.
+Include a hash pointer to the previous block and the root of the Merkle tree in the block header.
+Initialize the nonce value to 0.
+You may use any hash function, like SHA256.
+
+######Create Merkle Tree :
+
+Implement functionality to create a Merkle Tree.
+Arrange all transactions of each block in this tree.
+
+######Mine Block :
+
+Find the nonce value for the block.
+The target should be adjustable based on the number of trailing zeros in the 256-bit output string.
+
+######Display Blocks:
+
+Print all blocks, showing data such as nonce, previous hash, and current block hash.
+
+######Display Merkle Tree:
+
+Show transactions in a format that includes transactions and hashes.
+
+#####Verify Block and Chain :
+
+Verify a block and the entire blockchain, especially considering changes to the transactions stored in the Merkle tree.
+Change Block:
+
+Alter one or multiple transactions of a given block.
+######Calculate Hash :
+
+Calculate the hash of a transaction or a block.
+Use the Merkle‐Damgard Transform for large transactions.
+
+
+PART 2
+
+NETWORK Features
+
+######Create P2P Network :
+
+Emulate nodes in the network using goroutines.
+Each node functions as both a server and a client.
+#######Bootstrap Node :
+
+Designate one peer as the bootstrap node.
+The bootstrap node tracks IP addresses/port numbers of all nodes in the network.
+######Joining the Network :
+
+Allow new nodes to join the network.
+New nodes contact the bootstrap node for IP addresses/port numbers of existing nodes.
+######Display P2P Network:
+
+Show all nodes in the network and their connections.
+#####Transaction Propagation :
+
+Implement transaction broadcasting, either through flooding or the Gossip protocol.
+Maintain a list of recent transactions that aren't in any valid block.
+######Block Mining and Propagation :
+
+Create and mine blocks once a node has enough transactions.
+Broadcast mined blocks to the network.
+######Transaction List Pruning :
+
+On receiving a mined block, verify it and prune the local transaction list accordingly.
+########Block on Longest Chain :
+
+Ensure nodes accept blocks on the longest chain.
+Request missing blocks from neighbors if necessary.
